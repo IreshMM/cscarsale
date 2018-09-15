@@ -26,8 +26,8 @@ Route::get('/test', function() {
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin','AdminController@index');
 
-
-Route::get('/home', function() {
-  return redirect('Panels/Seller_Panel/index.html');
-});
+//Route::get('/home', function() {
+ // return redirect('Panels/Seller_Panel/index.html');
+//});
