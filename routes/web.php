@@ -26,7 +26,24 @@ Route::get('/test', function() {
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin','AdminController@index');
+
+Route::group(['middleware'=>['web','auth']],function(){
+  Route::get('/',function(){
+    return view('welcome');
+  });
+
+  Route::get('/home',function(){
+    if(Auth::user()->admin == 0){
+      //return view('seller_panel');
+      return redirect('Panels/Seller_Panel/index.html');
+    }else{
+      $user['users'] = \App\User::all();
+     // return view('Admin Panel',$users);
+      return redirect('Panels/Admin Panel/index.html');
+    }
+  });
+});
+
 
 //Route::get('/home', function() {
  // return redirect('Panels/Seller_Panel/index.html');
