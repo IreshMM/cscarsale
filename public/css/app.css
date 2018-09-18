@@ -10591,6 +10591,10 @@ h4 {
   font-size: 30px;
 }
 
+.modal-fade {
+  z-index: 100000;
+}
+
 .modal-footer {
   background-color: #f9f9f9;
 }
@@ -10599,4 +10603,6 @@ h4 {
   position: fixed;
   right: 0;
 }
+
+/* Styling login modal end-- */
 
